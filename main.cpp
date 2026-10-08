@@ -21,6 +21,7 @@ void handleClient(SOCKET clientSocket) {
 
 	while ((bytesReceived = recv(clientSocket, buffer, sizeof(buffer), 0)) > 0) {
 		std::cout << "Received: " << std::string(buffer, bytesReceived) << std::endl;
+		send(clientSocket, "hello", 5, 0);
 	}
 
 	if (bytesReceived == SOCKET_ERROR) {
